@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     EDIT THESE FIRST
+     ============================================================ -->
+<title>Kelly DaSilva — author of Dak Dak meets a Dodo Bird</title>
+<meta name="description" content="Kelly DaSilva is the author of Dak Dak meets a Dodo Bird, a picture book for ages 4 to 8.">
+<meta property="og:title" content="Kelly DaSilva">
+<meta property="og:description" content="Author of Dak Dak meets a Dodo Bird, a picture book for ages 4 to 8.">
+<meta property="og:image" content="author.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,600..900,100,1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --pool:  #2c7a86;   /* deep teal — the author band */
+    --sun:   #f2b441;   /* marigold — the book band */
+    --berry: #c4426b;   /* the buy button, used exactly once */
+    --paper: #fbf7f0;
+    --ink:   #23303a;
+    --soft:  #6b7780;
+
+    --display:"Fraunces", Georgia, serif;
+    --body:   "Karla", system-ui, sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.65;
+  }
+
+  :focus-visible{ outline:3px solid var(--ink); outline-offset:3px; }
+
+  h1,h2,h3{
+    font-family:var(--display);
+    font-variation-settings:"SOFT" 100, "WONK" 1;
+    font-weight:900;
+    line-height:1.02;
+    margin:0;
+  }
+
+  .wrap{
+    max-width:1000px;
+    margin-inline:auto;
+    padding-inline:clamp(20px,5vw,44px);
+  }
+
+  .eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    margin:0 0 18px;
+  }
+
+  /* ================= 1. THE AUTHOR ================= */
+
+  .author-band{
+    position:relative;
+    background:var(--pool);
+    color:var(--paper);
+    padding-block:clamp(48px,7vw,84px) 0;
+  }
+
+  .author{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,320px);
+    gap:clamp(32px,6vw,64px);
+    align-items:center;
+    padding-bottom:clamp(76px,10vw,124px);
+  }
+
+  .author .eyebrow{ color:var(--sun); }
+
+  .author h1{
+    font-size:clamp(46px,8vw,86px);
+    letter-spacing:-.015em;
+    margin-bottom:22px;
+  }
+
+  .author p{ margin:0 0 16px; max-width:46ch; color:#dcebed; }
+
+  .author-photo{
+    justify-self:center;
+    width:100%;
+    max-width:320px;
+    aspect-ratio:1;
+    object-fit:cover;
+    background:#1f5b64;
+    /* hand-cut, not a perfect circle */
+    border-radius:62% 38% 46% 54% / 54% 42% 58% 46%;
+  }
+
+  .visits{
+    margin-top:26px;
+    padding-top:20px;
+    border-top:2px solid rgba(251,247,240,.28);
+    font-size:15px;
+    color:#dcebed;
+  }
+
+  .visits strong{ display:block; color:var(--paper); margin-bottom:4px; }
+  .visits a{ color:var(--sun); text-underline-offset:4px; }
+
+  /* hand-cut paper edge into the book band */
+  .paper-edge{
+    display:block;
+    width:100%;
+    height:clamp(40px,6vw,68px);
+    position:absolute;
+    bottom:-1px;
+    left:0;
+  }
+
+  /* ================= 2. THE BOOK ================= */
+
+  .book-band{ background:var(--sun); padding-block:clamp(48px,7vw,80px); }
+
+  .book{
+    display:grid;
+    grid-template-columns:minmax(0,340px) minmax(0,1fr);
+    gap:clamp(32px,6vw,60px);
+    align-items:center;
+  }
+
+  .cover{
+    justify-self:center;
+    width:100%;
+    max-width:340px;
+    background:#e0a437;
+    box-shadow:0 22px 44px rgba(35,48,58,.3);
+    transform:rotate(-2deg);
+  }
+
+  .cover img{ display:block; width:100%; height:auto; min-height:220px; }
+
+  .book h2{
+    font-size:clamp(34px,5.4vw,58px);
+    letter-spacing:-.01em;
+    margin-bottom:16px;
+  }
+
+  .book .tagline{
+    font-size:clamp(17px,1.9vw,20px);
+    max-width:34ch;
+    margin:0 0 30px;
+  }
+
+  .buy{
+    display:inline-block;
+    background:var(--berry);
+    color:#fff;
+    font-weight:700;
+    font-size:17px;
+    text-decoration:none;
+    padding:16px 30px;
+    border-radius:999px;
+    box-shadow:0 5px 0 #93304f;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+
+  .buy:hover{ transform:translateY(2px); box-shadow:0 3px 0 #93304f; }
+  .buy:active{ transform:translateY(5px); box-shadow:0 0 0 #93304f; }
+
+  .formats{ margin:18px 0 0; font-size:15px; }
+  .formats a{ color:var(--ink); text-underline-offset:4px; }
+  .formats span{ opacity:.4; padding-inline:9px; }
+
+  /* ================= 3. ABOUT THE BOOK ================= */
+
+  .about{
+    display:grid;
+    grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+    gap:clamp(32px,6vw,60px);
+    align-items:start;
+    padding-block:clamp(56px,8vw,88px);
+  }
+
+  .about h2{ font-size:clamp(26px,3.4vw,36px); margin-bottom:20px; }
+  .about p{ margin:0 0 18px; max-width:52ch; }
+
+  /* a library catalogue card — the details teachers and librarians ask for */
+  .catalogue{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:4px;
+    padding:22px 24px;
+    box-shadow:6px 6px 0 var(--sun);
+  }
+
+  .catalogue h3{
+    font-family:var(--body);
+    font-variation-settings:normal;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--soft);
+    margin-bottom:14px;
+  }
+
+  .catalogue dl{
+    margin:0;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:7px 16px;
+    font-size:15px;
+  }
+
+  .catalogue dt{ color:var(--soft); }
+  .catalogue dd{ margin:0; font-weight:500; }
+
+  /* ================= FOOTER ================= */
+
+  footer{
+    padding-block:32px 52px;
+    font-size:14px;
+    color:var(--soft);
+    text-align:center;
+  }
+
+  footer p{ margin:0 0 6px; }
+  footer a{ color:var(--soft); }
+
+  /* ================= SMALL SCREENS ================= */
+
+  @media (max-width:760px){
+    .author, .book, .about{ grid-template-columns:1fr; }
+    .author, .book{ text-align:center; justify-items:center; }
+    .author-photo{ order:-1; max-width:230px; margin-bottom:10px; }
+    .cover{ order:-1; max-width:270px; margin-bottom:10px; }
+    .author p, .book .tagline, .about p{ margin-inline:auto; }
+    .visits{ width:100%; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .buy{ transition:none; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ================= 1. THE AUTHOR ================= -->
+<header class="author-band">
+  <div class="wrap author">
+
+    <div>
+      <p class="eyebrow">Meet the author</p>
+      <h1>Kelly DaSilva</h1>
+
+      <!-- Replace this bio with Kelly's own -->
+      <p>
+        Kelly writes picture books for children who ask a lot of questions and are
+        not satisfied with short answers. Her first book,
+        <em>Dak Dak meets a Dodo Bird</em>, began as a bedtime story that got
+        completely out of hand.
+      </p>
+      <p>She lives with her family, several unfinished drawings, and one very patient cat.</p>
+
+      <div class="visits">
+        <strong>School and library visits</strong>
+        Now booking readings and workshops —
+        <a href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+    </div>
+
+    <!-- Put Kelly's photo in the repo as author.jpg -->
+    <img class="author-photo" src="author.jpg" alt="Kelly DaSilva">
+
+  </div>
+
+  <svg class="paper-edge" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path fill="#f2b441" d="M0,44 C120,20 210,58 330,50 C455,42 520,10 640,22 C755,33 812,64 930,58 C1050,52 1120,18 1240,26 C1340,33 1390,52 1440,40 L1440,70 L0,70 Z"/>
+  </svg>
+</header>
+
+<main>
+
+  <!-- ================= 2. THE BOOK ================= -->
+  <section class="book-band">
+    <div class="wrap book">
+
+      <!-- Put the cover art in the repo as cover.png -->
+      <div class="cover">
+        <img src="cover.png" alt="Cover of Dak Dak meets a Dodo Bird">
+      </div>
+
+      <div>
+        <p class="eyebrow">Picture book · Ages 4–8</p>
+        <h2>Dak Dak meets a Dodo Bird</h2>
+        <p class="tagline">A story about meeting someone the world stopped making.</p>
+
+        <a class="buy" href="https://www.amazon.com/dp/XXXXXXXXXX">Buy on Amazon</a>
+
+        <p class="formats">
+          Also on
+          <a href="https://www.amazon.com/dp/XXXXXXXXXX">Kindle</a>
+          <span>·</span>
+          <a href="https://bookshop.org/">your local bookshop</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 3. ABOUT THE BOOK ================= -->
+  <section class="wrap about">
+    <div>
+      <h2>About the book</h2>
+
+      <!-- Replace this description with the real one -->
+      <p>
+        Dak Dak has never met anyone quite like the strange, round, flightless bird
+        at the far end of the garden. The dodo has never met anyone at all, not for
+        a very long time.
+      </p>
+      <p>
+        What follows is a friendship built out of questions, a few misunderstandings,
+        and one very long afternoon. A warm, funny story for young readers about
+        curiosity, kindness, and paying attention to the things we might otherwise
+        lose.
+      </p>
+    </div>
+
+    <div class="catalogue">
+      <h3>Book details</h3>
+      <dl>
+        <dt>Author</dt><dd>Kelly DaSilva</dd>
+        <dt>Ages</dt><dd>4–8</dd>
+        <dt>Pages</dt><dd>32</dd>
+        <dt>Format</dt><dd>Paperback picture book</dd>
+        <dt>Published</dt><dd>2026</dd>
+        <dt>ISBN</dt><dd>978-0-00-000000-0</dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>© 2026 Kelly DaSilva</p>
+  <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+</footer>
+
+</body>
+</html>
